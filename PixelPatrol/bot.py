@@ -132,7 +132,7 @@ async def on_message(message):
                 last_known_status[log_channel_id] = "offline"
                 save_to_json(last_known_status, "./PixelPatrol/last_known_status.json")
                 # Send Offline Embed
-                embed = discord.Embed(title="Status Update - Offline!", description="I have detected that this bot is having issues and is not connected and working.", color=0xff0000)
+                embed = discord.Embed(title="Status Update - Offline!", description="Ich habe bemerkt das der Bot ein Problem hat! Wir kümmern uns umm die Fehlerbehebung.", color=0xff0000)
                 embed.set_image(url="attachment://offline.gif")  # Set the offline GIF image
                 current_status = "offline"
                 await update_channel.send(embed=embed, file=discord.File("./PixelPatrol/offline.gif"))
@@ -148,7 +148,7 @@ async def on_message(message):
                 last_known_status[channel_id] = "online"
                 save_to_json(last_known_status, "./PixelPatrol/last_known_status.json")
                 # Send Online Status Embed
-                embed = discord.Embed(title="Status Update - Online!", description="I have detected that this bot is online and in working order.", color=0x00ff00)
+                embed = discord.Embed(title="Status Update - Online!", description="Ich habe erkannt das der Bot wieder funktioniert und Online ist! Viel Spaß.", color=0x00ff00)
                 embed.set_image(url="attachment://online.gif")  # Set the online GIF image
                 current_status = "online"
                 await update_channel.send(embed=embed, file=discord.File("./PixelPatrol/online.gif"))
@@ -192,7 +192,7 @@ async def on_message(message):
 
                     # Send offline notification only if last_known_status is online
                     if last_known_status.get(log_channel_id) == "offline":
-                        embed = discord.Embed(title="Status Update - Offline!", description="I have detected that this bot is having issues and is not connected and working.", color=0xff0000)
+                        embed = discord.Embed(title="Status Update - Offline!", description="Ich habe erkannt das der Bot wieder funktioniert und Online ist! Viel Spaß.", color=0xff0000)
                         embed.set_image(url="attachment://offline.gif")
                         await update_channel.send(embed=embed, file=discord.File("./PixelPatrol/offline.gif"))
                         new_name = f"❌{update_channel.name.replace('❌', '').replace('✅', '')}"
@@ -211,7 +211,7 @@ async def mark_online(ctx):
     last_known_status[channel_id] = "online"
     save_to_json(last_known_status, "./PixelPatrol/last_known_status.json")
     
-    embed = discord.Embed(title="Status Update - Online!", description="I have detected that this bot is online and in working order.", color=0x00ff00)
+    embed = discord.Embed(title="Status Update - Online!", description="Ich habe erkannt das der Bot wieder funktioniert und Online ist! Viel Spaß.", color=0x00ff00)
     embed.set_image(url="attachment://online.gif")
     await ctx.send(embed=embed, file=discord.File("./PixelPatrol/online.gif"))
     
@@ -230,7 +230,7 @@ async def mark_offline(ctx):
     last_known_status[channel_id] = "offline"
     save_to_json(last_known_status, "./PixelPatrol/last_known_status.json")
     
-    embed = discord.Embed(title="Status Update - Offline!", description="I have detected that this bot is having issues and is not connected and working.", color=0xff0000)
+    embed = discord.Embed(title="Status Update - Offline!", description="Ich habe bemerkt das der Bot ein Problem hat! Wir kümmern uns umm die Fehlerbehebung.", color=0xff0000)
     embed.set_image(url="attachment://offline.gif")
     await ctx.send(embed=embed, file=discord.File("./PixelPatrol/offline.gif"))
     
